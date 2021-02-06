@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
-  get 'matches/index'
+
+  root to: 'matches#index'
+  resources :items
+
 end
