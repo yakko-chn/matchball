@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root to: 'matches#index'
+  root to: 'matches#top'
   resources :items
 
 end
