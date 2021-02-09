@@ -6,6 +6,8 @@ class CreateMatches < ActiveRecord::Migration[6.0]
       t.string :speed
       t.string :retire
       t.string :spirits
+      t.string :memo
+      t.references :user, foreign_key: true
       t.timestamps
     end
   end

@@ -4,4 +4,7 @@ class Match < ApplicationRecord
     validates :room_id, length: { maximum: 7, minimum: 7 }, uniqueness: true
   end
 
+
+
+  belongs_to :user
 end

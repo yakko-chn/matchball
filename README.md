@@ -36,7 +36,7 @@
 <br>
 <br>
 
-<!-- ## users テーブル
+## users テーブル
 
 | Column                | Type     | Options     |
 | --------------------- | -------- | ----------- |
@@ -46,7 +46,7 @@
 
 ### Association
 
-- has_many :matches -->
+- has_many :matches
 
 
 ## matches テーブル
@@ -58,7 +58,8 @@
 | speed                  | string      |                                |
 | retire                 | string      |                                |
 | spirits                | string      |                                |
+| user                   | references  | null: false, foreign_key: true |
 
 ### Association
 
-<!-- - belongs_to :user -->
+- belongs_to :user
