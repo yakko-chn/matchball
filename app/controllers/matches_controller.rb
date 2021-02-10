@@ -20,4 +20,8 @@ class MatchesController < ApplicationController
    def match_params
     params.require(:match).permit(:room_id, :inning,:speed,:retire,:spirits,:memo).merge(user_id: current_user.id)
    end
+
+    def set_user
+      @user = User.find(params[:id])
+    end
 end
