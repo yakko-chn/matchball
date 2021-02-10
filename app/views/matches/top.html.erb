@@ -1,28 +1,49 @@
-<div class = "cover-container d-flex w-100 mx-auto flex-column">
- <header>
+<main class = "w-100 h-100">
 
- </header>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <%= link_to "MatchBall", root_path,class:"display-8 navbar-brand fs-1" %>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
- <main class = "w-100 h-100">
-  <div class = "title">トップページ</div>
-
-  <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-    <div class="bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden w-50" style="width: 80%; margin-top:300px;">
-      <div class="my-3 py-1">
-        <%= link_to "試合一覧を確認", root_path, class:"display-5"%>
-        <%# <p class="lead">作成されたルームを確認可能</p> %>
+        <div class="collapse navbar-collapse justify-content-end"  id="navbarNav">
+            <% if user_signed_in?%>
+              <ul class="navbar-nav">
+                <li class="nav-item" >
+                  <%= link_to "試合一覧を確認", root_path,class:"display-8" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "ルーム戦を作成する", new_match_path ,class:"display-8"%>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "ログアウト", destroy_user_session_path ,class:"display-8"%>
+                </li>
+              </ul>
+            <% else %>
+              <ul class="navbar-nav ">
+                <li class="nav-item">
+                  <%= link_to "試合一覧を確認", root_path,class:"display-8"%>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "ルーム戦を作成する", new_match_path ,class:"display-8"%>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "ログイン", new_user_session_path ,class:"display-8"%>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "新規登録", new_user_registration_path ,class:"display-8"%>
+                </li>
+              </ul>
+            <% end %>
+        </div>
       </div>
-    </div>
-    <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden w-50" style="width: 80%; margin-top:300px;">
-      <div class="my-3 p-1">
-        <%= link_to "ルームを作成する", new_match_path, class:"display-5"%>
-        <%# <p class="lead">※ログインが必要</p> %>
-      </div>
-    </div>
+    </nav>
+  </header>
+
+  <div class="container">
+    <p class="mt-5 fs-2">ようこそ！MatchBallへ！</p>
+    <p class="mt-5 fs-4">プロスピAのルーム戦のマッチングをお手伝いします！</p>
   </div>
- </div>
- </main>
-
- 
-
-</div>
+</main>

@@ -1,12 +1,18 @@
 main {
-  // background-image: image-url("athletes-1835893_640.jpg");
+  background-image: image-url("athletes-1835893_640.jpg");
   background-size: cover;
   background-color:rgba(255,255,255,0.4);
   background-blend-mode:lighten;
 }
 
-.title {
-  font-family:"Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif;
-  font-size: 100px;
-  padding-top: 100px;
+// .title {
+//   font-family:"Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif;
+//   font-size: 100px;
+//   padding-top: 100px;
+// }
+
+a {
+  text-decoration: none;
+  display: inline;
+  margin: 30px 30px;
 }
