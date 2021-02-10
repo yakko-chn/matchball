@@ -18,6 +18,6 @@ class MatchesController < ApplicationController
 
   private
    def match_params
-    params.require(:match).permit(:room_id, :inning,:speed,:retire,:spirits) 
+    params.require(:match).permit(:room_id, :inning,:speed,:retire,:spirits,:memo).merge(user_id: current_user.id)
    end
 end
