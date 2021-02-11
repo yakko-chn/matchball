@@ -1,5 +1,8 @@
 class MatchesController < ApplicationController
+  before_action :authenticate_user!, only: [:new]
+  
   def index
+    @matches = Match.all
   end
 
   def new
@@ -14,6 +17,11 @@ class MatchesController < ApplicationController
     else
      render :new
     end
+  end
+
+
+  def show
+    @match = Match.find(params[:id])
   end
 
   private
