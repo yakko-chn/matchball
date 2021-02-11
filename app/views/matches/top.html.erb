@@ -15,7 +15,7 @@
                  <%= link_to "ユーザー名：#{current_user.name}", root_path,class:"display-8" %>
                 </li>
                 <li class="nav-item" >
-                  <%= link_to "試合一覧を確認", root_path,class:"display-8" %>
+                  <%= link_to "試合一覧を確認", match_path(current_user.id),class:"display-8" %>
                 </li>
                 <li class="nav-item">
                   <%= link_to "ルーム戦を作成する", new_match_path ,class:"display-8"%>
@@ -27,7 +27,7 @@
             <% else %>
               <ul class="navbar-nav ">
                 <li class="nav-item">
-                  <%= link_to "試合一覧を確認", root_path,class:"display-8"%>
+                  <%= link_to "試合一覧を確認", matches_path,class:"display-8"%>
                 </li>
                 <li class="nav-item">
                   <%= link_to "ルーム戦を作成する", new_match_path ,class:"display-8"%>

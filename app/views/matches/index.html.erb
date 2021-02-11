@@ -1,0 +1,26 @@
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">ルームID</th>
+      <th scope="col">イニング数</th>
+      <th scope="col">スピード</th>
+      <th scope="col">リタイア有無</th>
+      <th scope="col">スピリッツ統一設定</th>
+      <th scope="col">主催者からのメッセージ</th>
+    </tr>
+  </thead>
+  <tbody>
+   <% @matches.each do |m|%>
+    <tr>
+      <th scope="row"><%= "#{m.id}"%></th>
+      <td><%= "#{m.room_id}"%></td>
+      <td><%= "#{m.inning}"%></td>
+      <td><%= "#{m.speed}"%></td>
+      <td><%= "#{m.retire}"%></td>
+      <td><%= "#{m.spirits}"%></td>
+      <td><%= "#{m.memo}"%></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
