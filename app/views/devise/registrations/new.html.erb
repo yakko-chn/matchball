@@ -1,43 +1,35 @@
-<form class="px-4 py-3 h-100 text-center">
-
-    <h2>新規登録</h2>
-
-  <%= form_with model: @user, url: user_registration_path, class: 'h-100 text-center', local: true do |f| %>
-      <%= render "devise/shared/error_messages", model: f.object %>
-
+ 
+<%= form_with model: @user, url: user_registration_path, class: 'h-100 text-center', local: true do |f| %>
+  <form class="px-4 py-3 h-100 text-center">
+     <h2>新規登録</h2>
         <div class="field">
           <div class='field-label'>
             <%= f.label :name %><br />
             <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
           </div>
         </div>
-
+        
         <div class="field">
           <%= f.label :email %><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
         </div>
-
+        
         <div class="field">
-          <%= f.label :password %>
-          <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> 文字以上)</em>
-          <% end %><br />
+          <%= f.label :password %><br />
           <%= f.password_field :password, autocomplete: "new-password" %>
         </div>
-
+        
         <div class="field">
           <%= f.label :password_confirmation %><br />
           <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
         </div>
-
+        
         <div class="actions mt-3">
           <%= f.submit "登録する" %>
         </div>
-
+        
         <%= link_to "トップページに戻る", root_path ,class:"display-8"%>
-
+        
     <% end %>
-
  </form>
-
 <%# <%= render "devise/shared/links" %>
