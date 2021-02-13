@@ -1,0 +1,15 @@
+ja:
+ activerecord:
+   attributes:
+     user:
+       nickname: ユーザー名
+       email: Eメール
+       encrypted_password: パスワード
+       password_confirmation: パスワード（確認用）
+     match:
+       room_id: ルームID
+       inning: イニング数
+       speed: スピード
+       retire: リタイア制度
+       spirits: スピリッツ統一
+       memo: 主催者からのメッセージ
