@@ -1,25 +1,33 @@
 <table class="table">
   <thead class="thead-dark">
     <tr>
-      <th scope="col">#</th>
+      <th scope="col">主催者名</th>
       <th scope="col">ルームID</th>
       <th scope="col">イニング数</th>
       <th scope="col">スピード</th>
       <th scope="col">リタイア有無</th>
       <th scope="col">スピリッツ統一設定</th>
       <th scope="col">主催者からのメッセージ</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
    <% @matches.each do |m|%>
     <tr>
-      <th scope="row"><%= "#{m.id}"%></th>
+      <th scope="row"><%= "#{m.user.name}"%></th>
       <td><%= "#{m.room_id}"%></td>
       <td><%= "#{m.inning}"%></td>
       <td><%= "#{m.speed}"%></td>
       <td><%= "#{m.retire}"%></td>
       <td><%= "#{m.spirits}"%></td>
       <td><%= "#{m.memo}"%></td>
+       <% if user_signed_in? %>
+        <% if current_user.id == m.user_id %>
+          <td><%= "編集"%></td>
+          <td><%= "削除"%></td>
+        <% end %>
+       <% end %>
     </tr>
     <% end %>
   </tbody>
