@@ -19,9 +19,17 @@ class MatchesController < ApplicationController
     end
   end
 
-
   def show
     @match = Match.find(params[:id])
+  end
+
+  def destroy
+    match = Match.find(params[:id])
+    
+   if match.destroy
+    redirect_to matches_path
+   end
+
   end
 
   private
@@ -29,7 +37,4 @@ class MatchesController < ApplicationController
     params.require(:match).permit(:room_id, :inning,:speed,:retire,:spirits,:memo).merge(user_id: current_user.id)
    end
 
-    def set_user
-      @user = User.find(params[:id])
-    end
 end
