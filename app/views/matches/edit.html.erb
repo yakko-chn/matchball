@@ -1,0 +1,47 @@
+<%= form_with(model: @match,　local: true) do |f| %> 
+
+<div class="row g-5">
+  
+  <div class="col-md-7 col-lg-8">
+    <h4 class="mb-3">ルーム戦修正</h4>
+    <form class="needs-validation" novalidate="">
+      <div class="row g-3">
+
+        <div class="col-12">
+          <label for="room-id" class="form-label">ルームID<span class="text-muted">(7桁)</span></label>
+          <%= f.text_field :room_id, class:"form-control", id:"room-id", placeholder:"ルームIDを入力してください" %>
+        </div>
+
+        <div class="col-12">
+          <label for="inning" class="form-label">イニング数</label>
+           <%= f.select :inning,['---','1回','2回','3回','6回','9回','タイブレイク'],class:"form-select", id:"inning", required:"" %>
+        </div>
+
+        <div class="col-12">
+          <label for="speed" class="form-label">投球カーソル</label>
+          <%= f.select :speed,['---','フェード','高速フェード','超高速フェード','非表示'],class:"form-select", id:"speed", required:"" %>
+         </div>
+
+        <div class="col-12">
+          <label for="retire" class="form-label">強制リタイア</label>
+          <%= f.select :retire,['---','有', '無'],class:"form-select", id:"retire", required:"" %>
+         </div>
+
+        <div class="col-12">
+          <label for="spirits" class="form-label">スピリッツ一律</label>
+          <%= f.select :spirits,['---','一律', '一律ではない'] ,class:"form-select", id:"spirits", required:"" %>
+         </div>
+
+        <div class="col-12">
+          <label for="memo" class="form-label">主催者からのメッセージ</label>
+          <%= f.text_area :memo, class:"form-control", id:"memo"%>
+        </div>
+
+      <button class="w-100 btn btn-primary btn-lg" type="submit">修正する</button>
+    </form>
+  </div>
+
+         <%= link_to "トップページに戻る", root_path ,class:"mt-3"%>
+</div>
+
+<% end %>
