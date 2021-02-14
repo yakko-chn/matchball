@@ -16,7 +16,7 @@
    <% @matches.each do |m|%>
     <tr>
       <th scope="row"><%= "#{m.user.name}"%></th>
-      <td><%= "#{m.room_id}"%><br><%= "投稿日：#{m.created_at.to_s(:datetime)}"%></td>
+      <td><%= "#{m.room_id}"%><br><%= "投稿日：#{m.created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[m.created_at.wday]}) %H:%M")}"%></td>
       <td><%= "#{m.inning}"%></td>
       <td><%= "#{m.speed}"%></td>
       <td><%= "#{m.retire}"%></td>
