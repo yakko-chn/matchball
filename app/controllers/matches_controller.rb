@@ -1,5 +1,6 @@
 class MatchesController < ApplicationController
   before_action :authenticate_user!, only: [:new,:show]
+  before_action :set_match, only: [:show,:edit,:update]
   
   def index
     @matches = Match.all
@@ -23,6 +24,20 @@ class MatchesController < ApplicationController
     @match = Match.find(params[:id])
   end
 
+  def edit
+    @match = Match.find(params[:id])
+  end
+
+  def update
+    @match = Match.find(params[:id])
+
+    if @match.update(match_params)
+      redirect_to matches_path
+    else
+      render :new
+    end
+  end
+
   def destroy
     match = Match.find(params[:id])
     
@@ -35,6 +50,10 @@ class MatchesController < ApplicationController
   private
    def match_params
     params.require(:match).permit(:room_id, :inning,:speed,:retire,:spirits,:memo).merge(user_id: current_user.id)
+   end
+
+   def set_match
+    @match = Match.find(params[:id])
    end
 
 end
