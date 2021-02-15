@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table table-hover">
   <thead class="thead-dark">
     <tr>
       <th scope="col">主催者名</th>
@@ -8,15 +8,20 @@
       <th scope="col">リタイア有無</th>
       <th scope="col">スピリッツ統一設定</th>
       <th scope="col">主催者からのメッセージ</th>
-      <th scope="col"></th>
-      <th scope="col"></th>
+      <% @matches.each do |m|%>
+       <% if user_signed_in? %>
+        <% if current_user.id == m.user_id %>
+         <th scope=""></th>
+        <% end %>
+       <% end %>
+      <% end %>
     </tr>
   </thead>
   <tbody>
    <% @matches.each do |m|%>
     <tr>
       <th scope="row"><%= "#{m.user.name}"%></th>
-      <td><%= "#{m.room_id}"%><br><%= "投稿日：#{m.created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[m.created_at.wday]}) %H:%M")}"%></td>
+      <td><%= "#{m.room_id}"%><br><%= "投稿日：#{m.updated_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[m.updated_at.wday]}) %H:%M")}"%></td>
       <td><%= "#{m.inning}"%></td>
       <td><%= "#{m.speed}"%></td>
       <td><%= "#{m.retire}"%></td>
@@ -24,8 +29,8 @@
       <td><%= "#{m.memo}"%></td>
        <% if user_signed_in? %>
         <% if current_user.id == m.user_id %>
-          <td><%= link_to "編集", edit_match_path(m.id), class:"btn btn-info" %></td>
-          <td><%= link_to '削除', match_path(m.id), method: :delete,class:"btn btn-danger" %></td>
+          <td><%= link_to "編集", edit_match_path(m.id), class:"btn btn-info ps-3" %></td>
+          <td><%= link_to '削除', match_path(m.id), method: :delete,class:"btn btn-danger pe-3" %></td>
         <% end %>
        <% end %>
     </tr>
